@@ -7,17 +7,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="Login" method="post">
-		<label>
-			E-mail
-			<input type="email" name="email" required >
-		</label>
-		<label>
-			Senha
-			<input type="password" name="senha" required>
-		</label>
-		<input type="submit" value="Logar">
-		<a href="FormCadastro"><input type="button" value="Criar conta"></a>
-	</form>
+	<header>
+		<h1><a href="ListarLojas">Mercadorigem</a></h1>
+	</header>
+	<main>
+		<form action="Login" method="post">
+			<label>
+				E-mail
+				<input type="email" name="email" required >
+			</label>
+			<label>
+				Senha
+				<input type="password" name="senha" required>
+			</label>
+			<input type="submit" value="Logar">
+			<a href="FormCadastro"><input type="button" value="Criar conta"></a>
+		</form>
+	</main>
 </body>
 </html>

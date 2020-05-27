@@ -2,15 +2,14 @@ package dev.gabrielgrazziani.meEscamborio.controller;
 
 import java.io.IOException;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dev.gabrielgrazziani.meEscamborio.bin.Mensagem;
 import dev.gabrielgrazziani.meEscamborio.bin.Produto;
+import dev.gabrielgrazziani.meEscamdori.model.MensagemDao;
+import dev.gabrielgrazziani.meEscamdori.model.ProdutoDao;
 
 public class CriaMensagem implements Acao {
 
@@ -29,18 +28,16 @@ public class CriaMensagem implements Acao {
 		mensagem.setTelefone(telefone);
 		mensagem.setMensagem(mensagemString);
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa");
-		EntityManager em = emf.createEntityManager();
+		MensagemDao mensagemDao = new MensagemDao();
+		ProdutoDao produtoDao = new ProdutoDao();
 		
-		em.getTransaction().begin();
-		Produto produto = em.find(Produto.class, idProduto);
+		Produto produto = produtoDao.getProduto(idProduto);
 		
 		mensagem.setProduto(produto);
-		em.persist(mensagem);
-		
-		em.getTransaction().commit();
-		
-		
+		mensagemDao.save(mensagem);
+
+		produtoDao.close();
+		mensagemDao.close();
 		return "redirect:ListarLojas";
 	}
 

@@ -2,14 +2,12 @@ package dev.gabrielgrazziani.meEscamborio.controller;
 
 import java.io.IOException;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dev.gabrielgrazziani.meEscamborio.bin.Loja;
+import dev.gabrielgrazziani.meEscamdori.model.LojaDao;
 
 public class HomeLoja implements Acao {
 
@@ -18,13 +16,15 @@ public class HomeLoja implements Acao {
 			throws ServletException, IOException {
 		Loja loja = (Loja) request.getSession().getAttribute("loja");
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa");
-		EntityManager entityManager = emf.createEntityManager();
+		LojaDao lojaDao = new LojaDao();
 		
-		Loja lojaAtual = entityManager.find(Loja.class, loja.getId());
+		loja = lojaDao.getLoja(loja.getId());
 		
-		request.setAttribute("loja", lojaAtual);
+		request.setAttribute("loja", loja);
 		
+		System.out.println(loja);
+		
+		lojaDao.close();
 		return "froward:HomeLoja.jsp";
 	}
 

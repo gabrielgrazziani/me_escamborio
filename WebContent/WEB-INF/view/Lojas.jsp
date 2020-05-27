@@ -8,13 +8,16 @@
 <title>Lojas</title>
 </head>
 <body>
-	
-	<a href="FormLogin"><input type="button" value="login"></a>
-	<h1>Lojas</h1>
-	
-	<c:forEach items="${lojas}" var="loja">
-		<a href="ListarProdutosLoja?id=${loja.id}">${loja.loja}</a>
-	</c:forEach>
-
+	<header>
+		<h1><a href="ListarLojas">Mercadorigem</a></h1>
+		<a href="FormLogin"><input type="button" value="login"></a>
+	</header>
+	<main>
+		<h1>Lojas</h1>
+		
+		<c:forEach items="${lojas}" var="loja">
+			<a href="ListarProdutosLoja?id=${loja.id}">${loja.loja}</a>
+		</c:forEach>
+	</main>
 </body>
 </html>

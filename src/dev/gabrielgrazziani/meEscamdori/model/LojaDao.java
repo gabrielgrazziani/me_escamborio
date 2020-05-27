@@ -1,6 +1,7 @@
 package dev.gabrielgrazziani.meEscamdori.model;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -27,9 +28,17 @@ public class LojaDao implements AutoCloseable{
 		return lojas;
 	}
 	
-	public Loja GetLoja(Long id) {
+	public Loja getLoja(Long id) {
 		Loja loja = em.find(Loja.class,id);
 		return loja;
+	}
+	
+	public Optional<Loja> getLoja(String email) {
+		String jpql = "select l from Loja l where l.email = :email";
+		TypedQuery<Loja> typedQuery = em.createQuery(jpql, Loja.class);
+		typedQuery.setParameter("email", email);
+			 
+		return typedQuery.getResultStream().findFirst();
 	}
 	
 	public void excluir(Long id) {

@@ -68,7 +68,7 @@ public class Mensagem {
 	}
 	@Override
 	public String toString() {
-		return "Mensagem [id=" + id + ", comprador=" + comprador + ", telefone=" + telefone + ", mensagem=" + mensagem
+		return "Mensagem [id=" + getId() + ", comprador=" + comprador + ", telefone=" + telefone + ", mensagem=" + mensagem
 				+ ", quantidade=" + quantidade + ", dataTime=" + dataTime + "]";
 	}
 	public Loja getLoja() {
@@ -83,5 +83,11 @@ public class Mensagem {
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 		this.loja = produto.getLoja();
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 }

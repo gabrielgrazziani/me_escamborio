@@ -20,7 +20,7 @@ public class ListarProdutosLoja implements Acao{
 		
 		LojaDao lojaDao = new LojaDao();
 		
-		Loja loja = lojaDao.GetLoja(id);
+		Loja loja = lojaDao.getLoja(id);
 		
 		Collection<Produto> produtos = loja.getProdutos();
 		

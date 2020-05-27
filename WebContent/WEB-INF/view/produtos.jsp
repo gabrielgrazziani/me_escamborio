@@ -5,19 +5,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Lojas</title>
+<title>Loja</title>
 </head>
 <body>
-
-	<h1>Produtos</h1>
-	
-	<ul>
-	<c:forEach items="${produtos}" var="produto">
-		<li>
-			produto: <a href="FormMensagem?idProduto=${produto.id}">${produto.nome}</a>
-			preço: ${produto.preco}
-		</li>
-	</c:forEach>
-	</ul>
+	<header>
+		<h1><a href="ListarLojas">Mercadorigem</a></h1>
+		<a href="FormLogin"><input type="button" value="login"></a>
+	</header>
+	<main>
+		<h1>Produtos</h1>
+		
+		<ul>
+		<c:forEach items="${produtos}" var="produto">
+			<li>
+				produto: <a href="FormMensagem?idProduto=${produto.id}">${produto.nome}</a>
+				preço: ${produto.preco}
+			</li>
+		</c:forEach>
+		</ul>
+	</main>	
 </body>
 </html>

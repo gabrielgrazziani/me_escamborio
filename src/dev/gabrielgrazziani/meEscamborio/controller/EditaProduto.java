@@ -3,14 +3,12 @@ package dev.gabrielgrazziani.meEscamborio.controller;
 import java.io.IOException;
 import java.math.BigDecimal;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dev.gabrielgrazziani.meEscamborio.bin.Produto;
+import dev.gabrielgrazziani.meEscamdori.model.ProdutoDao;
 
 public class EditaProduto implements Acao{
 
@@ -23,19 +21,18 @@ public class EditaProduto implements Acao{
 		String preco = request.getParameter("preco");
 		String descricao = request.getParameter("descricao");
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa");
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
 		
-		Produto produto = em.find(Produto.class, idProduto);
+		Produto produto = new Produto();
+		produto.setId(idProduto);
 		produto.setNome(nomeProduto);
 		produto.setPreco(new BigDecimal(preco));
 		produto.setDescricao(descricao);
 		
-		request.getSession().setAttribute("loja", produto.getLoja());
+		ProdutoDao produtoDao = new ProdutoDao();
 		
-		em.getTransaction().commit();
-		
+		produtoDao.save(produto);
+	
+		produtoDao.close();
 		return "redirect:HomeLoja";
 	}
 	

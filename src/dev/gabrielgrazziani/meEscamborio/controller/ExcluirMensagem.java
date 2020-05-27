@@ -6,22 +6,22 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dev.gabrielgrazziani.meEscamdori.model.ProdutoDao;
+import dev.gabrielgrazziani.meEscamdori.model.MensagemDao;
 
-public class ExcluirProduto implements Acao{
+public class ExcluirMensagem implements Acao{
 	
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		long idProduto = Long.parseLong(request.getParameter("idProduto"));
+		long idMensagem = Long.parseLong(request.getParameter("idMensagem"));
 	
 	
-		ProdutoDao produtoDao = new ProdutoDao();
+		MensagemDao mensagemDao = new MensagemDao();
 		
-		produtoDao.excluir(idProduto);
+		mensagemDao.excluir(idMensagem);
 		
-		produtoDao.close();
-		return "redirect:HomeLoja";
+		mensagemDao.close();
+		return "redirect:ListaMensagens";
 	}
 
 	
