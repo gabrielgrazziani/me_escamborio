@@ -3,15 +3,13 @@ package dev.gabrielgrazziani.meEscamborio.controller;
 import java.io.IOException;
 import java.util.Collection;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dev.gabrielgrazziani.meEscamborio.bin.Loja;
 import dev.gabrielgrazziani.meEscamborio.bin.Produto;
+import dev.gabrielgrazziani.meEscamdori.model.LojaDao;
 
 public class ListarProdutosLoja implements Acao{
 
@@ -20,16 +18,21 @@ public class ListarProdutosLoja implements Acao{
 			throws ServletException, IOException {
 		long id = Long.parseLong((String) request.getParameter("id"));
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa");
-		EntityManager em = emf.createEntityManager();
+		LojaDao lojaDao = new LojaDao();
 		
-		Loja loja = em.find(Loja.class,id);
+		Loja loja = lojaDao.GetLoja(id);
 		
 		Collection<Produto> produtos = loja.getProdutos();
 		
 		request.setAttribute("produtos", produtos);
-		//em.close();
 		
+		//esta linha esta aqui para forçar o jpa a
+		//puxar os daodos dos produtos antes de dar o close.
+		//essa linha pode ser retitada assi que emcontrar uma forma
+		//adequada de faser isso.
+		System.out.println(produtos);
+		
+		lojaDao.close();
 		return "forward:produtos.jsp";
 	}
 

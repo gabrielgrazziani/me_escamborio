@@ -13,6 +13,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 public class Loja {
 	@Id
@@ -30,9 +33,11 @@ public class Loja {
 	private String senha;
 	
 	@OneToMany(mappedBy = "loja")
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private List<Mensagem> mensagens = new LinkedList<Mensagem>();
 	
 	@OneToMany(mappedBy = "loja")
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Collection<Produto> produtos = new HashSet<Produto>();
 		
 	public Loja(String loja, String email, String senha) {
@@ -46,6 +51,10 @@ public class Loja {
 	}
 	public long getId() {
 		return this.id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getLogista() {
 		return logista;

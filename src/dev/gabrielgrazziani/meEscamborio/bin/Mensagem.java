@@ -26,6 +26,7 @@ public class Mensagem {
 	private LocalDateTime dataTime;
 	
 	@ManyToOne(optional = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Loja loja;
 	
 	@ManyToOne(optional = false)
