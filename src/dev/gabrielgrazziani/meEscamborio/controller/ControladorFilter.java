@@ -29,7 +29,7 @@ public class ControladorFilter implements Filter {
 		request.setCharacterEncoding("UTF-8");
 		
 		String url = request.getRequestURI();
-		String parametoAcao = url.split("/")[2];
+		String parametoAcao = url.split("/").length == 3 ? url.split("/")[2] : "ListarLojas";
 		
 		String nomeClasse = "dev.gabrielgrazziani.meEscamborio.controller." + parametoAcao;
 

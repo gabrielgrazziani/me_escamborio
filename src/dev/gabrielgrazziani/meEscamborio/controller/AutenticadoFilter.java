@@ -21,7 +21,7 @@ public class AutenticadoFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) servletRequest;
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
 		String url = request.getRequestURI();
-		String parametoAcao = url.split("/")[2];
+		String parametoAcao =  url.split("/").length == 3 ? url.split("/")[2] : "ListarLojas";
 		
 		List<String> permitidos = Arrays.asList(
 				"ListarLojas","ListarProdutosLoja","FormLogin","Login",
