@@ -29,7 +29,15 @@ public class LojaDao implements AutoCloseable{
 	}
 	
 	public Loja getLoja(Long id) {
-		Loja loja = em.find(Loja.class,id);
+		String jpql = "select l from Loja l left join fetch l.produtos where l.id = :idLoja";
+		TypedQuery<Loja> typedQuery = em.createQuery(jpql,Loja.class);
+		typedQuery.setParameter("idLoja", id);
+		Loja loja = typedQuery.getSingleResult();
+		
+		typedQuery = em.createQuery("select distinct l from Loja l left join fetch l.mensagens where l in :loja",Loja.class);
+		typedQuery.setParameter("loja", loja);
+		loja = typedQuery.getSingleResult();
+		
 		return loja;
 	}
 	

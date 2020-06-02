@@ -26,12 +26,6 @@ public class ListarProdutosLoja implements Acao{
 		
 		request.setAttribute("produtos", produtos);
 		
-		//esta linha esta aqui para forçar o jpa a
-		//puxar os daodos dos produtos antes de dar o close.
-		//essa linha pode ser retitada assi que emcontrar uma forma
-		//adequada de faser isso.
-		System.out.println(produtos);
-		
 		lojaDao.close();
 		return "forward:produtos.jsp";
 	}

@@ -22,8 +22,6 @@ public class ListaMensagens implements Acao{
 		
 		request.setAttribute("loja", loja);
 		
-		System.out.println(loja);
-		
 		lojaDao.close();
 		return "forward:listaMensagens.jsp";
 	}
