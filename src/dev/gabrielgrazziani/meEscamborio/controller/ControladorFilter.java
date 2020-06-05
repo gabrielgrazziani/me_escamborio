@@ -32,7 +32,9 @@ public class ControladorFilter implements Filter {
 		String url = request.getRequestURI();
 		String parametoAcao = url.split("/").length >= 3 ? url.split("/")[2] : "ListarLojas";
 		
-		if(parametoAcao.equals("CriaProduto") || parametoAcao.equals("file")) {
+		if(parametoAcao.equals("CriaProduto") ||
+				parametoAcao.equals("file") ||
+				parametoAcao.equals("EditaProduto")) {
 			chain.doFilter(servletRequest, servletResponse);
 			return;
 		}

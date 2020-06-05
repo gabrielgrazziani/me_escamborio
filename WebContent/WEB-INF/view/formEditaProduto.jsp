@@ -13,7 +13,7 @@
 		<a href="Logout"><input type="button" value="logout"></a>
 	</header>
 	<main>
-		<form action="EditaProduto" method="post">
+		<form action="EditaProduto" enctype="multipart/form-data" method="post">
 			<a href="ExcluirProduto?idProduto=${produto.id}"><input type="button" value="Excluir"></a>
 			<label>
 				Nome:
@@ -27,6 +27,9 @@
 				Descrição:
 				<textarea rows="8" cols="30" name="descricao">${produto.descricao}</textarea>
 			</label>
+			<img style="height: 120px" alt="${produto.nome}" src="file/${produto.imagem}">
+			<input type="file" name="imagem">
+			
 			<input type="hidden" name="idProduto" value="${produto.id}">
 			<input type="submit" value="Editar">
 			<a href="HomeLoja"><input type="button" value="Cancelar"></a>
