@@ -45,8 +45,6 @@ public class ProdutoDao implements AutoCloseable{
 			em.persist(produto);
 		}
 		else {
-			Produto produtoNoBanco = em.find(Produto.class, produto.getId());
-			produto.setLoja(produtoNoBanco.getLoja());
 			em.merge(produto);
 		}
 		em.getTransaction().commit();

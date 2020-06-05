@@ -45,9 +45,6 @@ public class MensagemDao implements AutoCloseable{
 			em.persist(mensagem);
 		}
 		else {
-			Mensagem mensagemNoBanco = em.find(Mensagem.class, mensagem.getId());
-			mensagem.setLoja(mensagemNoBanco.getLoja());
-			mensagem.setProduto(mensagemNoBanco.getProduto());
 			em.merge(mensagem);
 		}
 		em.getTransaction().commit();

@@ -32,20 +32,17 @@ public class EditaProduto extends HttpServlet{
 		ProdutoDao produtoDao = new ProdutoDao();
 		
 		Produto produto = produtoDao.getProduto(idProduto);
-		produto.setId(idProduto);
 		produto.setNome(nomeProduto);
 		produto.setPreco(new BigDecimal(preco));
 		produto.setDescricao(descricao);
-		
-		produtoDao.save(produto);
 		
 		if(!imagem.getSubmittedFileName().contentEquals("")) {
 			SaveImageProduto saveImageProduto = new SaveImageProduto();
 			String relativePath = saveImageProduto.save(produto, imagem);
 			produto.setImagem(relativePath);
 			
-			produtoDao.save(produto);	
 		}
+		produtoDao.save(produto);	
 	
 		produtoDao.close();
 
