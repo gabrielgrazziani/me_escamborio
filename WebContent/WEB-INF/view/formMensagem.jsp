@@ -10,6 +10,7 @@
 	<h1>Nome: ${produto.nome}</h1>
 	<p>Preço: ${produto.preco}</p>
 	<p>Descrição: ${produto.descricao}</p>
+	<img style="height: 120px" alt="${produto.nome}" src="file/${produto.imagem}">
 	
 	<form action="CriaMensagem" method="post">
 		<label>
