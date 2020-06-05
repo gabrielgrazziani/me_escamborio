@@ -9,6 +9,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,7 +30,12 @@ public class ControladorFilter implements Filter {
 		request.setCharacterEncoding("UTF-8");
 		
 		String url = request.getRequestURI();
-		String parametoAcao = url.split("/").length == 3 ? url.split("/")[2] : "ListarLojas";
+		String parametoAcao = url.split("/").length >= 3 ? url.split("/")[2] : "ListarLojas";
+		
+		if(parametoAcao.equals("CriaProduto") || parametoAcao.equals("file")) {
+			chain.doFilter(servletRequest, servletResponse);
+			return;
+		}
 		
 		String nomeClasse = "dev.gabrielgrazziani.meEscamborio.controller." + parametoAcao;
 

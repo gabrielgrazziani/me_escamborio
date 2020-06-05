@@ -4,23 +4,34 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import dev.gabrielgrazziani.meEscamborio.bin.Loja;
 import dev.gabrielgrazziani.meEscamborio.bin.Produto;
+import dev.gabrielgrazziani.meEscamborio.infra.SaveImageProduto;
 import dev.gabrielgrazziani.meEscamdori.model.ProdutoDao;
 
-public class CriaProduto implements Acao {
-
+@WebServlet("/CriaProduto")
+@MultipartConfig
+public class CriaProduto extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
 	@Override
-	public String executa(HttpServletRequest request, HttpServletResponse response)
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Loja loja = (Loja) request.getSession().getAttribute("loja");
 		
-		String nomeProduto = request.getParameter("nomeProduto");
-		String preco = request.getParameter("preco");
-		String descricao = request.getParameter("descricao");
+		final String nomeProduto = request.getParameter("nomeProduto");
+		final String preco = request.getParameter("preco");
+		final String descricao = request.getParameter("descricao");
+		Part imagem = request.getPart("imagem");
+		
+		System.out.println("nome: " + nomeProduto + "preço: " + preco);
 		
 		Produto produto = new Produto();
 		produto.setNome(nomeProduto);
@@ -32,9 +43,15 @@ public class CriaProduto implements Acao {
 		
 		produtoDao.save(produto);
 		
+		SaveImageProduto saveImageProduto = new SaveImageProduto();
+		String relativePath = saveImageProduto.save(produto, imagem);
+		produto.setImagem(relativePath);
+		
+		produtoDao.save(produto);
+		
 		produtoDao.close();
 		
-		return "redirect:HomeLoja";
+		response.sendRedirect("HomeLoja");
 	}
 
 }

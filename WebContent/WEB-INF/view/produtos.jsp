@@ -20,6 +20,7 @@
 			<li>
 				produto: <a href="FormMensagem?idProduto=${produto.id}">${produto.nome}</a>
 				preço: ${produto.preco}
+				<img style="height: 120px" alt="${produto.nome}" src="file/${produto.imagem}">
 			</li>
 		</c:forEach>
 		</ul>

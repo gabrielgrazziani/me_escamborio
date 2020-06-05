@@ -20,6 +20,7 @@
 				produto: <a href="FormEditaProduto?idProduto=${produto.id}">${produto.nome}</a>
 				preço: ${produto.preco}
 				descrição: ${produto.descricao}
+				<img style="height: 120px" alt="${produto.nome}" src="file/${produto.imagem}">
 			</li>
 		</c:forEach>
 	</main>	

@@ -21,6 +21,7 @@ public class Produto {
 	private String nome;
 	private String descricao;
 	private BigDecimal preco;
+	private String imagem;
 	
 	@ManyToOne(optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
@@ -33,6 +34,15 @@ public class Produto {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	public String getImagem() {
+		return imagem;
+	}
+	
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
