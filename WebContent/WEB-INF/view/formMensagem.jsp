@@ -3,34 +3,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Mercadorigens - Loja</title>
+	<link href="estilo.css" rel="stylesheet">
 </head>
 <body>
-	<h1>Nome: ${produto.nome}</h1>
-	<p>Preço: ${produto.preco}</p>
-	<p>Descrição: ${produto.descricao}</p>
-	<img style="height: 120px" alt="${produto.nome}" src="file/${produto.imagem}">
-	
-	<form action="CriaMensagem" method="post">
-		<label>
-			Nome:
-			<input type="text" name="nomeComprador" required >
-		</label>
-		<label>
-			Quantidade:
-			<input type="number" name="quantidade" required>
-		</label>
-		<label>
-			WhatsApp:
-			<input type="tel" name="telefone" required>
-		</label>
-		<label>
-			Mensagem:
-			<textarea rows="8" cols="30" name="mensagem"></textarea>
-		</label>
-		<input type="hidden" name="idProduto" value="${produto.id}">
-		<input type="submit" value="Enviar">
-	</form>
+	<header>
+		<div class="header"><h1 style="color: #900000; text-align: center;" >MERCADORIGENS</h1></div>
+
+		<a href="ListarLojas"><button class="button">Voltar à página inicial</button></a><a href="ListarProdutosLoja?id=${produto.loja.id}"><button class="button">Voltar à página da loja</button></a>
+		
+	</header>
+	<main>
+		<h2>${produto.loja.loja}</h2>
+		<div class="center2">
+			<h2>${produto.nome}</h2>
+			<p>Descrição do Produto: ${produto.descricao}</p>
+			<p>Preço: ${produto.preco}</p>
+			<p>Envie uma mensagem para o vendedor se tiver interesse no
+				produto:</p>
+			<h3>
+				<form action="CriaMensagem" method="post">
+					<label for="fname">Nome</label> 
+					<input style="width: 25%" type="text" id="nome" name="nomeComprador" required>
+					 
+					<label for="fname2">Whatsapp</label> 
+					<input style="width: 25%" type="tel" id="numero" name="telefone" required>
+					
+					<label	for="fname3">Quantidade</label>
+					<input style="width: 25%" type="number" id="quantidade" name="quantidade" required><br>
+					
+					<label for="fname4">Mensagem</label>
+					<textarea name="mensagem"></textarea>
+					<input type="hidden" name="idProduto" value="${produto.id}">
+					<input type="submit" value="Enviar">
+				</form>
+			</h3>
+		</div>
+	</main>
 </body>
 </html>

@@ -4,23 +4,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Loja</title>
+	<meta charset="UTF-8">
+	<link href="estilo.css" rel="stylesheet">
+	<title>Mercadorigens - Loja</title>
 </head>
 <body>
 	<header>
-		<h1><a href="ListarLojas">Mercadorigem</a></h1>
-		<a href="FormLogin"><input type="button" value="login"></a>
+		<div class="header">
+			<h1 style="color: #900000; text-align: center;" >
+				MERCADORIGENS
+			</h1>
+		</div>
+		<form>
+			<button class="button" style="width:100%;" formaction="ListarLojas">Voltar à página inicial</button>
+		</form>
 	</header>
 	<main>
-		<h1>Produtos</h1>
+		<h2>${loja }</h2>
 		
 		<ul>
 		<c:forEach items="${produtos}" var="produto">
 			<li>
-				produto: <a href="FormMensagem?idProduto=${produto.id}">${produto.nome}</a>
-				preço: ${produto.preco}
-				<img style="height: 120px" alt="${produto.nome}" src="file/${produto.imagem}">
+				<a href="FormMensagem?idProduto=${produto.id}">
+					${produto.nome}
+					<div class="c" >
+						<p>Preço: ${produto.preco}</p>
+						<img alt="${produto.nome}" src="file/${produto.imagem}" width="100">
+					</div>
+				</a>
 			</li>
 		</c:forEach>
 		</ul>

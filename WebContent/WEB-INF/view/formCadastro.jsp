@@ -3,37 +3,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Mercadorigens - Registro</title>
+	<link href="estilo.css" rel="stylesheet">
 </head>
 <body>
 	<header>
-		<h1><a href="ListarLojas">Mercadorigem</a></h1>
+		<div class="header"><h1 style="color: #900000; text-align: center;" >MERCADORIGENS</h1></div>
 	</header>
-	<main>
+	<main class="center">
+		<h2 style="text-align: center;">Registrar-se</h2>
 		<form action="CriaLoja" method="post">
 			<label>
-				Nome Logísta
+				Nome do Vendedor
 				<input type="text" name="nomeLogista" required >
 			</label>
 			<label>
-				Nome Loja
+				Nome da Loja
 				<input type="text" name="nomeLoja" required >
 			</label>
 			<label>
 				E-mail
-				<input type="email" name="email" required >
+				<input type="email" id="email" name="email" required >
 			</label>
 			<label>
 				Senha
 				<input type="password" name="senha" required>
 			</label>
 			<label>
-				Repetir a Senha
+				Confirmar Senha
 				<input type="password" name="repetiSenha" required>
 			</label>
-			<input type="submit" value="Cadastrar">
-			<a href="ListarLojas"><input type="button" value="Cancelar"></a>
+			<input type="submit" value="Registrar">
+			<h5 style="text-align: center;">Já possui uma conta?<a href="FormLogin">Fazer Login</a></h5>
 		</form>
 	</main>
 	

@@ -9,7 +9,6 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -34,7 +33,9 @@ public class ControladorFilter implements Filter {
 		
 		if(parametoAcao.equals("CriaProduto") ||
 				parametoAcao.equals("file") ||
-				parametoAcao.equals("EditaProduto")) {
+				parametoAcao.equals("EditaProduto") ||
+				parametoAcao.equals("estilo.css") ||
+				parametoAcao.equals("sobre.html")){
 			chain.doFilter(servletRequest, servletResponse);
 			return;
 		}

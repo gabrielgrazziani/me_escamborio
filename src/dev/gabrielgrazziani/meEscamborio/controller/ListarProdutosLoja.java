@@ -24,6 +24,7 @@ public class ListarProdutosLoja implements Acao{
 		
 		Collection<Produto> produtos = loja.getProdutos();
 		
+		request.setAttribute("loja", loja.getLoja());
 		request.setAttribute("produtos", produtos);
 		
 		lojaDao.close();

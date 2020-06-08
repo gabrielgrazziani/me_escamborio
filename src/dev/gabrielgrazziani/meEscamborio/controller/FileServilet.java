@@ -1,4 +1,4 @@
-package dev.gabrielgrazziani.meEscamborio.bin;
+package dev.gabrielgrazziani.meEscamborio.controller;
 
 import java.io.IOException;
 import java.net.FileNameMap;

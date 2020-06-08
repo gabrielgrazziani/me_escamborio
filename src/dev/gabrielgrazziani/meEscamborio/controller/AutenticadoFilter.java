@@ -27,8 +27,8 @@ public class AutenticadoFilter implements Filter {
 		String parametoAcao =  url.split("/").length >= 3 ? url.split("/")[2] : "ListarLojas";
 		
 		List<String> permitidos = Arrays.asList(
-				"ListarLojas","ListarProdutosLoja","FormLogin","Login",
-				"FormMensagem","CriaMensagem","FormCadastro","CriaLoja","file");
+				"ListarLojas","ListarProdutosLoja","FormLogin","Login","estilo.css",
+				"FormMensagem","CriaMensagem","FormCadastro","CriaLoja","file","sobre.html");
 		
 		boolean soAutenticado = !permitidos.contains(parametoAcao);
 		
