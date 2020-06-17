@@ -4,36 +4,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Mercadorigens - Loja</title>
+	<link href="estilo.css" rel="stylesheet">
 </head>
 <body>
 	<header>
-		<h1><a href="HomeLoja">Mercadorigem</a></h1>
-		<a href="Logout"><input type="button" value="logout"></a>
+		<div class="header">
+			<h1 style="color: #900000; text-align: center;">MERCADORIGENS</h1>
+		</div>
+	
+		<div>
+			<a href="FormProduto"><button class="button">castrar produto</button></a><a
+			 href="ListaMensagens"><button class="button">mensagens</button></a>
+		</div>
+		<h2 class="nome_loja">${loja.loja }</h2>
+		<h3 class="logout">
+			<a href="Logout">Sair</a>
+		</h3>
 	</header>
 	<main>
+		<div class="center2">
 		<form action="EditaProduto" enctype="multipart/form-data" method="post">
-			<a href="ExcluirProduto?idProduto=${produto.id}"><input type="button" value="Excluir"></a>
+			<a style="display: block;" href="ExcluirProduto?idProduto=${produto.id}"><input type="button" value="Excluir"></a>
 			<label>
 				Nome:
-				<input type="text" name="nomeProduto" value="${produto.nome}" required >
+				<input style="width: 95%" type="text" name="nomeProduto" value="${produto.nome}" required >
 			</label>
 			<label>
 				Preço:
-				<input type="number" name="preco" value="${produto.preco}" required>
+				<input style="width: 95%" type="number" name="preco" value="${produto.preco}" required>
 			</label>
 			<label>
 				Descrição:
 				<textarea rows="8" cols="30" name="descricao">${produto.descricao}</textarea>
 			</label>
-			<img style="height: 120px" alt="${produto.nome}" src="file/${produto.imagem}">
 			<input type="file" name="imagem">
 			
 			<input type="hidden" name="idProduto" value="${produto.id}">
 			<input type="submit" value="Editar">
 			<a href="HomeLoja"><input type="button" value="Cancelar"></a>
 		</form>
+		</div>
 	</main>
 </body>
 </html>

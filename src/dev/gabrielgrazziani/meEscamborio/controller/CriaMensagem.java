@@ -38,7 +38,7 @@ public class CriaMensagem implements Acao {
 
 		produtoDao.close();
 		mensagemDao.close();
-		return "redirect:ListarLojas";
+		return "redirect:ListarProdutosLoja?id=1";
 	}
 
 }

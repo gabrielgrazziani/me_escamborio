@@ -10,6 +10,9 @@
 <body>
 	<header>
 		<div class="header"><h1 style="color: #900000; text-align: center;" >MERCADORIGENS</h1></div>
+		<form>
+			<button class="button" style="width:100%;" formaction="ListarLojas">Voltar à página inicial</button>
+		</form>
 	</header>
 	<div class="center"><h2 style="text-align: center;">Fazer Login</h2>
 		<form action="Login" method="post">

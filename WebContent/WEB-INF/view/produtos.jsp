@@ -25,11 +25,11 @@
 		<ul>
 		<c:forEach items="${produtos}" var="produto">
 			<li>
-				<a href="FormMensagem?idProduto=${produto.id}">
+				<a class="li" href="FormMensagem?idProduto=${produto.id}">
 					${produto.nome}
 					<div class="c" >
 						<p>Preço: ${produto.preco}</p>
-						<img alt="${produto.nome}" src="file/${produto.imagem}" width="100">
+						<img alt="${produto.nome}" src="file/${produto.imagem}" width="140px">
 					</div>
 				</a>
 			</li>

@@ -1,28 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Mercadorigens - Loja</title>
+	<link href="estilo.css" rel="stylesheet">
 </head>
 <body>
 	<header>
-		<h1><a href="HomeLoja">Mercadorigem</a></h1>
-		<a href="Logout"><input type="button" value="logout"></a>
-		<a href="FormProduto"><input type="button" value="castrar produto"></a>
-		<a href="ListaMensagens"><input type="button" value="mensagens"></a>
+		<div class="header">
+			<h1 style="color: #900000; text-align: center;">MERCADORIGENS</h1>
+		</div>
+	
+		<div>
+			<a href="FormProduto"><button class="button">castrar produto</button></a><a
+			 href="ListaMensagens"><button class="button">mensagens</button></a>
+		</div>
 	</header>
 	<main>
-		<c:forEach items="${loja.produtos}" var="produto">
-			<li>
-				produto: <a href="FormEditaProduto?idProduto=${produto.id}">${produto.nome}</a>
-				preço: ${produto.preco}
-				descrição: ${produto.descricao}
-				<img style="height: 120px" alt="${produto.nome}" src="file/${produto.imagem}">
-			</li>
-		</c:forEach>
-	</main>	
+		<h2 class="nome_loja">${loja.loja }</h2>
+		<h3 class="logout">
+			<a href="Logout">Sair</a>
+		</h3>
+		<ul>
+			<c:forEach items="${loja.produtos}" var="produto">
+				<li>
+					<a class="li" href="FormEditaProduto?idProduto=${produto.id}">
+						${produto.nome}
+						<div class="c">
+							<p>Preço: ${produto.preco}</p>
+							<p>Descrição: ${produto.descricao}</p>
+							<img src="file/${produto.imagem}" width="140px">
+						</div>
+					</a>
+				</li>
+			</c:forEach>
+		</ul>  
+	</main>
 </body>
 </html>

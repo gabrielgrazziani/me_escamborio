@@ -39,7 +39,7 @@ public class Login implements Acao{
 			return "redirect:HomeLoja";
 		}
 		
-		return "redirect:ListarLojas";
+		return "redirect:FormLogin";
 	}
 
 }

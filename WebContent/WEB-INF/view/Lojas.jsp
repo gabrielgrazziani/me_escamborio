@@ -22,7 +22,7 @@
 	<main>
 		<ul>
 		<c:forEach items="${lojas}" var="loja">
-			<li class="tcenter"><a href="ListarProdutosLoja?id=${loja.id}">${loja.loja}</a></li>
+			<li class="tcenter"><a class="li" href="ListarProdutosLoja?id=${loja.id}">${loja.loja}</a></li>
 		</c:forEach>
 		</ul>
 	</main>
