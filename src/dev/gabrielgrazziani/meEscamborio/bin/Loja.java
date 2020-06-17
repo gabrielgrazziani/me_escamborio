@@ -89,6 +89,10 @@ public class Loja {
 	public boolean addMensagem(Mensagem mensagem) {
 		return this.mensagens.add(mensagem);
 	}
+	public void mensagemSort() {
+		this.mensagens.sort((a,b) -> b.getDataTime().compareTo(a.getDataTime()));
+	}
+	
 	public Collection<Produto> getProdutos() {
 		return Collections.unmodifiableCollection(this.produtos);
 	}
