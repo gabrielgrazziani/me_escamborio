@@ -35,10 +35,12 @@ public class CriaMensagem implements Acao {
 		
 		mensagem.setProduto(produto);
 		mensagemDao.save(mensagem);
+		
+		String idLoja = String.valueOf(mensagem.getLoja().getId());
 
 		produtoDao.close();
 		mensagemDao.close();
-		return "redirect:ListarProdutosLoja?id=1";
+		return "redirect:ListarProdutosLoja?id=" + idLoja;
 	}
 
 }
