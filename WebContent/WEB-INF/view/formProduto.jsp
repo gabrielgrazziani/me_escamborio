@@ -10,12 +10,11 @@
 <body>
 	<header>
 		<div class="header">
-			<h1 style="color: #900000; text-align: center;">MERCADORIGENS</h1>
+			<h1>MERCADORIGEM</h1>
 		</div>
 	
 		<div>
-			<a href="FormProduto"><button class="button">castrar produto</button></a><a
-			 href="ListaMensagens"><button class="button">mensagens</button></a>
+			<a  href="HomeLoja"><button style="width: 100%" class="button">Voltar à página da Loja</button></a>
 		</div>
 		<h2 class="nome_loja">${loja.loja }</h2>
 		<h3 class="logout">

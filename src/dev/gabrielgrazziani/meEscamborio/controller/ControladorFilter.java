@@ -35,7 +35,8 @@ public class ControladorFilter implements Filter {
 				parametoAcao.equals("file") ||
 				parametoAcao.equals("EditaProduto") ||
 				parametoAcao.equals("estilo.css") ||
-				parametoAcao.equals("sobre.html")){
+				parametoAcao.equals("sobre.html") ||
+				parametoAcao.equals("Tippa.ttf")){
 			chain.doFilter(servletRequest, servletResponse);
 			return;
 		}

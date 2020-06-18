@@ -11,11 +11,11 @@
 <body>
 	<header>
 		<div class="header">
-			<h1 style="color: #900000; text-align: center;">MERCADORIGENS</h1>
+			<h1>MERCADORIGEM</h1>
 		</div>
 	
 		<div>
-			<a href="FormProduto"><button class="button">castrar produto</button></a><a
+			<a href="FormProduto"><button class="button">cadastrar produto</button></a><a
 			 href="ListaMensagens"><button class="button">mensagens</button></a>
 		</div>
 	</header>

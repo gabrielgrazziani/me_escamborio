@@ -9,7 +9,7 @@
 </head>
 <body>
 	<header>
-		<div class="header"><h1 style="color: #900000; text-align: center;" >MERCADORIGENS</h1></div>
+		<div class="header"><h1>MERCADORIGEM</h1></div>
 		<form>
 			<button class="button" style="width:100%;" formaction="ListarLojas">Voltar à página inicial</button>
 		</form>

@@ -11,9 +11,7 @@
 <body>
 	<header>
 		<div class="header">
-			<h1 style="color: #900000; text-align: center;">
-				MERCADORIGENS
-			</h1>
+			<h1>MERCADORIGEM</h1>
 		</div>
 		<form>
 			<button class="button" formaction="FormLogin">Sou Lojista</button><button class="button" formaction="sobre.html">Sobre</button>

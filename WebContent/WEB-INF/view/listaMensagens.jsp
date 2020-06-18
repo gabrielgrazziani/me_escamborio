@@ -13,7 +13,7 @@
 <body>
 	<header>
 		<div class="header">
-			<h1 style="color: #900000; text-align: center;">MERCADORIGENS</h1>
+			<h1>MERCADORIGEM</h1>
 		</div>
 		<a href="HomeLoja">
 			<button class="button" style="width: 100%;" formaction="lojista.html">

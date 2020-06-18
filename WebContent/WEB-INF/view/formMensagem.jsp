@@ -9,7 +9,7 @@
 </head>
 <body>
 	<header>
-		<div class="header"><h1 style="color: #900000; text-align: center;" >MERCADORIGENS</h1></div>
+		<div class="header"><h1>MERCADORIGEM</h1></div>
 
 		<a href="ListarLojas"><button class="button">Voltar à página inicial</button></a><a href="ListarProdutosLoja?id=${produto.loja.id}"><button class="button">Voltar à página da loja</button></a>
 		
